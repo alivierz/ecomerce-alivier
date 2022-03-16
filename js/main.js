@@ -4,6 +4,10 @@ let xbox = document.getElementById('xbox')
 let itemNintendo = document.getElementById('itemsnintendo')
 let itemXbox = document.getElementById('itemsxbox')
 let itemPlay = document.getElementById('itemsplay')
+
+let imgagenesN = ["/img/itemNintendoConsole.jpg","/img/itemNintendoGame.jpg","/img/itemNintendoExtras.jpg"]
+let imgagenesP = ["/img/itemPlayConsole.jpg","/img/itemPlayGame.jpg","/img/itemPlayExtras.jpg"]
+let imgagenesX = ["/img/itemXboxConsole.jpg","/img/itemXboxGame.jpg","/img/itemXboxExtras.jpg"]
 /**Estilos CSS con JS */
 nintendo.style.color = 'rgb(255, 0 ,10)'
 nintendo.style.fontSize = '3.5rem'
@@ -101,6 +105,7 @@ let contenidoCarrito = document.querySelector('.contenido-carrito')
 let carritoInfo = document.querySelector('.carrito-info')
 let agregarProductos = document.getElementById('agregar-productos')
 let total = document.getElementById('total')
+let comprar = document.getElementById('comprar')
 
 
 let contadorCompra = 1;
@@ -112,35 +117,35 @@ const carroCompra = {
         sumar: function(item){
             if(item + 1 <= 3){
                 if(item + 1 == 1){
-                   agregarProductos.innerHTML += `<li>Producto ${item + 1} Precio $${carroCompra.html[0]}</li>`
+                   agregarProductos.innerHTML += `<li>Producto  <img src=${imgagenesN[0]} alt="compra">  Precio $${carroCompra.html[0]}</li>`
                    carroCompra.metodos.total(carroCompra.html[0])
                 }else if(item + 1 == 2){
-                    agregarProductos.innerHTML += `<li>Producto ${item + 1} Precio $${carroCompra.html[1]}</li>`
+                    agregarProductos.innerHTML += `<li>Producto <img src=${imgagenesN[1]} alt="compra">  Precio $${carroCompra.html[1]}</li>`
                     carroCompra.metodos.total(carroCompra.html[1])
                  }else if(item + 1 == 3){
-                    agregarProductos.innerHTML += `<li>Producto ${item + 1} Precio $${carroCompra.html[2]}</li>`
+                    agregarProductos.innerHTML += `<li>Producto <img src=${imgagenesN[2]} alt="compra">  Precio $${carroCompra.html[2]}</li>`
                     carroCompra.metodos.total(carroCompra.html[2])
                  }
             }else if(item + 1 <= 6){
                 if(item + 1 == 4){
-                    agregarProductos.innerHTML += `<li>Producto ${item + 1} Precio $${carroCompra.html[0]}</li>`
+                    agregarProductos.innerHTML += `<li>Producto <img src=${imgagenesX[0]} alt="compra">  Precio $${carroCompra.html[0]}</li>`
                     carroCompra.metodos.total(carroCompra.html[0])
                  }else if(item + 1 == 5){
-                     agregarProductos.innerHTML += `<li>Producto ${item + 1} Precio $${carroCompra.html[1]}</li>`
+                     agregarProductos.innerHTML += `<li>Producto <img src=${imgagenesX[1]} alt="compra">  Precio $${carroCompra.html[1]}</li>`
                      carroCompra.metodos.total(carroCompra.html[1])
                   }else if(item + 1 == 6){
-                     agregarProductos.innerHTML += `<li>Producto ${item + 1} Precio $${carroCompra.html[2]}</li>`
+                     agregarProductos.innerHTML += `<li>Producto <img src=${imgagenesX[2]} alt="compra">  Precio $${carroCompra.html[2]}</li>`
                      carroCompra.metodos.total(carroCompra.html[2])
                   }
             }else{
                 if(item + 1 == 7){
-                    agregarProductos.innerHTML += `<li>Producto ${item + 1} Precio $${carroCompra.html[0]}</li>`
+                    agregarProductos.innerHTML += `<li>Producto <img src=${imgagenesP[0]} alt="compra"> Precio $${carroCompra.html[0]}</li>`
                     carroCompra.metodos.total(carroCompra.html[0])
                  }else if(item + 1 == 8){
-                     agregarProductos.innerHTML += `<li>Producto ${item + 1} Precio $${carroCompra.html[1]}</li>`
+                     agregarProductos.innerHTML += `<li>Producto <img src=${imgagenesP[1]} alt="compra"> Precio $${carroCompra.html[1]}</li>`
                      carroCompra.metodos.total(carroCompra.html[1])
                   }else if(item + 1 == 9){
-                     agregarProductos.innerHTML += `<li>Producto ${item + 1} Precio $${carroCompra.html[2]}</li>`
+                     agregarProductos.innerHTML += `<li>Producto <img src=${imgagenesP[2]} alt="compra"> Precio $${carroCompra.html[2]}</li>`
                      carroCompra.metodos.total(carroCompra.html[2])
                   }
             }
@@ -170,6 +175,13 @@ const carroCompra = {
                 }, 550);
                 evento = 0;
             }
+        },
+        comprar: function(){
+            while(agregarProductos.firstChild) {
+                agregarProductos.removeChild(agregarProductos.firstChild);
+            }
+            contadorCompra = 0
+            pedidos.innerHTML = `${contadorCompra}`;
         }
     }
 }
@@ -179,6 +191,7 @@ for(let i = 0; i < botonAgregar.length; i++){
     botonAgregar[i].addEventListener('click', () => carroCompra.metodos.mostrar())
     botonAgregar[i].addEventListener('click', () => carroCompra.metodos.sumar(i))
 }
+comprar.addEventListener('click', () => carroCompra.metodos.comprar())
 carrito.addEventListener('click', () => carroCompra.metodos.mostrarCarro())
 
 

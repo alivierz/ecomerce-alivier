@@ -67,8 +67,7 @@ img{
     font-family: 'Fredoka', sans-serif;
     margin-top: 20px;
 }
-.contenido-carrito > a{
-    text-decoration: none;
+.contenido-carrito > button{
     color:rgb(170,212,224);
     text-align: center;
     border: 1px solid rgb(170,212,224);
@@ -76,12 +75,25 @@ img{
     border-radius: 1rem;
     align-self: center;
     margin-top: 20px;
+    outline:none;
+    background-color: rgb(31, 29, 42);
+    cursor: pointer;
 }
 #agregar-productos{
     list-style: none;
     padding: 0;
     margin: 0;
     text-align: justify;
+}
+#agregar-productos > li{
+    display: flex;
+    align-items: center;
+    margin: .5rem 0;
+}
+#agregar-productos > li > img{
+    width: 50px;
+    margin: 0 1rem;
+    border-radius: 16px;
 }
 /************************* ENCABEZADO ***************************/
 .header{
