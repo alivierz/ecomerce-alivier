@@ -150,13 +150,13 @@ const carroCompra = {
                   }
             }
         },
-        total: function(t){
+        total: function(t=0){
             resultado += t;
             total.innerHTML = `Total: $${resultado}`
         },
         mostrar: function(){
-            pedidos.innerHTML = `${contadorCompra}`;
             contadorCompra += 1
+            pedidos.innerHTML = `${contadorCompra}`;
         },
         mostrarCarro: function(){
             
@@ -182,6 +182,8 @@ const carroCompra = {
             }
             contadorCompra = 0
             pedidos.innerHTML = `${contadorCompra}`;
+            resultado = 0;
+            total.innerHTML = `Total: $${resultado}`
         }
     }
 }
