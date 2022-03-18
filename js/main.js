@@ -108,7 +108,7 @@ let total = document.getElementById('total')
 let comprar = document.getElementById('comprar')
 
 
-let contadorCompra = 1;
+let contadorCompra = 0;
 let evento = 0;
 let resultado = 0;
 const carroCompra = {
